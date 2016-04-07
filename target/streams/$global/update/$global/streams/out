@@ -1,26 +1,26 @@
-[info] Updating {file:/Users/caleje/IdeaProjects/ZhongPun/}zhongpun...
-[debug] :: resolving dependencies :: default#zhongpun_2.11;1.0
+[info] Updating {file:/Users/caleje/IdeaProjects/Qisi/}qisi...
+[debug] :: resolving dependencies :: zhongpun#zhongpun_2.11;1.0
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
 [debug] 	refresh = false
 [debug] resolving dependencies for configuration 'compile'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.11.5 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3f1ed18b
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@238f491e
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.5
 [debug] 	found org.scala-lang#scala-library;2.11.5 in sbt-chain
 [debug] 	[2.11.5] org.scala-lang#scala-library;2.11.5
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
 [info] Resolving com.chuusai#shapeless_2.11;2.3.0 ...
 [debug] sbt-chain: Checking cache for: dependency: com.chuusai#shapeless_2.11;2.3.0 {compile=[default(compile)]}
 [debug] sbt-chain: module revision found in cache: com.chuusai#shapeless_2.11;2.3.0
 [debug] 	found com.chuusai#shapeless_2.11;2.3.0 in sbt-chain
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [info] Resolving org.scala-lang#scala-library;2.11.7 ...
 [debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.11.7 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}
@@ -52,17 +52,17 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [runtime->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->runtime(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
 [debug] resolving dependencies for configuration 'runtime'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [runtime]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [runtime]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [compile->compile(*)]
@@ -75,18 +75,18 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
 [debug] resolving dependencies for configuration 'test'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [test]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [runtime]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [test]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [runtime]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [compile->compile(*)]
@@ -99,14 +99,14 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->default(compile)]
 [info] Resolving org.scalatest#scalatest_2.11;2.2.6 ...
 [debug] sbt-chain: Checking cache for: dependency: org.scalatest#scalatest_2.11;2.2.6 {test=[default(compile)]}
 [debug] sbt-chain: module revision found in cache: org.scalatest#scalatest_2.11;2.2.6
 [debug] 	found org.scalatest#scalatest_2.11;2.2.6 in sbt-chain
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->compile]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)]
@@ -143,21 +143,21 @@
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-reflect;2.11.7 [runtime->compile]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang.modules#scala-xml_2.11;1.0.2 [runtime->runtime(*)]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang.modules#scala-xml_2.11;1.0.2 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->master]
 [debug] resolving dependencies for configuration 'provided'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [provided]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [provided]
 [debug] resolving dependencies for configuration 'optional'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [optional]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [optional]
 [debug] resolving dependencies for configuration 'compile-internal'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile-internal]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile-internal]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [compile->compile(*)]
@@ -170,20 +170,20 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [optional]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [provided]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [optional]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [provided]
 [debug] resolving dependencies for configuration 'runtime-internal'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [runtime-internal]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [runtime]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [runtime-internal]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [runtime]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [compile->compile(*)]
@@ -196,20 +196,20 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [optional]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [optional]
 [debug] resolving dependencies for configuration 'test-internal'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [test-internal]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [test]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [runtime]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [test-internal]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [test]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [runtime]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->compile]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [compile->compile(*)]
@@ -222,10 +222,10 @@
 [debug] == resolving dependencies com.chuusai#shapeless_2.11;2.3.0->org.typelevel#macro-compat_2.11;1.1.1 [runtime->compile]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.typelevel#macro-compat_2.11;1.1.1->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->default(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->com.chuusai#shapeless_2.11;2.3.0 [compile->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->default(compile)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->compile]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-library;2.11.7 [compile->compile(*)]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-library;2.11.7 [compile->master(compile)]
 [debug] == resolving dependencies org.scalatest#scalatest_2.11;2.2.6->org.scala-lang#scala-reflect;2.11.7 [compile->compile(*)]
@@ -249,26 +249,26 @@
 [debug] == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.2->org.scala-lang#scala-library;2.11.1 [runtime->runtime(*)]
 [debug] == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [runtime->runtime(*)]
 [debug] == resolving dependencies org.scala-lang.modules#scala-xml_2.11;1.0.2->org.scala-lang#scala-library;2.11.7 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->master]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [optional]
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [provided]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->master]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [optional]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [provided]
 [debug] resolving dependencies for configuration 'plugin'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [plugin]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [plugin]
 [debug] resolving dependencies for configuration 'sources'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [sources]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [sources]
 [debug] resolving dependencies for configuration 'docs'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [docs]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [docs]
 [debug] resolving dependencies for configuration 'pom'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [pom]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [pom]
 [debug] resolving dependencies for configuration 'scala-tool'
-[debug] == resolving dependencies for default#zhongpun_2.11;1.0 [scala-tool]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->default]
+[debug] == resolving dependencies for zhongpun#zhongpun_2.11;1.0 [scala-tool]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->default]
 [info] Resolving org.scala-lang#scala-compiler;2.11.5 ...
 [debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.11.5 {scala-tool=[default, optional(default)]}
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.11.5
 [debug] 	found org.scala-lang#scala-compiler;2.11.5 in sbt-chain
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->compile]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang#scala-library;2.11.5 [compile->compile(*)]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang#scala-library;2.11.5 [compile->master(compile)]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang#scala-library;2.11.5 [compile->default]
@@ -329,19 +329,19 @@
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang.modules#scala-xml_2.11;1.0.3 [runtime->compile]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.3 [runtime->runtime(*)]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->org.scala-lang.modules#scala-parser-combinators_2.11;1.0.3 [runtime->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->optional(default)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-compiler;2.11.5 [scala-tool->optional(default)]
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->jline#jline;2.12 [optional->compile(*)]
 [info] Resolving jline#jline;2.12 ...
 [debug] sbt-chain: Checking cache for: dependency: jline#jline;2.12 {optional=[compile(*), master(compile)]}
 [debug] sbt-chain: module revision found in cache: jline#jline;2.12
 [debug] 	found jline#jline;2.12 in sbt-chain
 [debug] == resolving dependencies org.scala-lang#scala-compiler;2.11.5->jline#jline;2.12 [optional->master(compile)]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->default]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->runtime]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->compile]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->master]
-[debug] == resolving dependencies default#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->optional(default)]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->default]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->runtime]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->compile]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->master]
+[debug] == resolving dependencies zhongpun#zhongpun_2.11;1.0->org.scala-lang#scala-library;2.11.5 [scala-tool->optional(default)]
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.11.5!scala-library.jar
@@ -356,21 +356,21 @@
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.3!scala-xml_2.11.jar(bundle)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.3!scala-parser-combinators_2.11.jar(bundle)
 [debug] 	[NOT REQUIRED] jline#jline;2.12!jline.jar
-[debug] :: resolution report :: resolve 207ms :: artifacts dl 12ms
-[debug] 	report for default#zhongpun_2.11;1.0 compile produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-compile.xml
-[debug] 	report for default#zhongpun_2.11;1.0 runtime produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-runtime.xml
-[debug] 	report for default#zhongpun_2.11;1.0 test produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-test.xml
-[debug] 	report for default#zhongpun_2.11;1.0 provided produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-provided.xml
-[debug] 	report for default#zhongpun_2.11;1.0 optional produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-optional.xml
-[debug] 	report for default#zhongpun_2.11;1.0 compile-internal produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-compile-internal.xml
-[debug] 	report for default#zhongpun_2.11;1.0 runtime-internal produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-runtime-internal.xml
-[debug] 	report for default#zhongpun_2.11;1.0 test-internal produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-test-internal.xml
-[debug] 	report for default#zhongpun_2.11;1.0 plugin produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-plugin.xml
-[debug] 	report for default#zhongpun_2.11;1.0 sources produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-sources.xml
-[debug] 	report for default#zhongpun_2.11;1.0 docs produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-docs.xml
-[debug] 	report for default#zhongpun_2.11;1.0 pom produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-pom.xml
-[debug] 	report for default#zhongpun_2.11;1.0 scala-tool produced in /Users/caleje/IdeaProjects/ZhongPun/target/resolution-cache/reports/default-zhongpun_2.11-scala-tool.xml
-[debug] 	resolve done (207ms resolve - 12ms download)
+[debug] :: resolution report :: resolve 560ms :: artifacts dl 26ms
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 compile produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-compile.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 runtime produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-runtime.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 test produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-test.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 provided produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-provided.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 optional produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-optional.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 compile-internal produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-compile-internal.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 runtime-internal produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-runtime-internal.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 test-internal produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-test-internal.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 plugin produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-plugin.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 sources produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-sources.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 docs produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-docs.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 pom produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-pom.xml
+[debug] 	report for zhongpun#zhongpun_2.11;1.0 scala-tool produced in /Users/caleje/IdeaProjects/Qisi/target/resolution-cache/reports/zhongpun-zhongpun_2.11-scala-tool.xml
+[debug] 	resolve done (560ms resolve - 26ms download)
 [info] Done updating.
 [warn] Scala version was updated by one of library dependencies:
 [warn] 	* org.scala-lang:scala-library:2.11.5 -> 2.11.7
