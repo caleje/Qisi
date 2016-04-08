@@ -41,12 +41,14 @@ T裇 T裇 [T xu1] /T-shirt/
 * Search-ability needs to be more flexible than just map ... need wildcards
 * Can have a Chinese phoneme map to more than one English phoneme, e.g. chinese("an") -> english("AE", "AO").  And vice-versa.
 * What to do when there's no exact match
+* English words with multiple pronounciations?
 * Deal with Chinese -i final which depends on what it follows, e.g. zhi vs qi
 * Use WordNet to determine meaning of words and identify cognates (since those are less interesting)
 * Computational Humor: https://en.wikipedia.org/wiki/Computational_humor
 ** Apparently there is a "That's what she said" joke detector
 * Mash-up with twitter feed
 ** Take a tweet -- take each word and see if there's a cross-language pun in each word of the tweet
+* Type/implicit to make "english sentence" toPhenomes possible.  Detects that english and then translates
 
 # Things I've learned
 * Regex 

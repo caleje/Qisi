@@ -1,6 +1,6 @@
 import java.io.InputStream
 
-import qisi.Entries
+import qisi.{Entries, Translation}
 
 object Main {
 
@@ -16,6 +16,10 @@ object Main {
 
     println(s"English #words: ${enEntries.length}, #homophones: ${enHomophones.keys.toSeq.length}")
     println(s"Chinese #words: ${chEntries.length}, #homophones: ${chHomophones.keys.toSeq.length}")
+
+    val sentence = "head shoulder knee and toes knees and toes"
+    println(sentence)
+    println(Translation.EnglishToPhoneme(sentence))
   }
 
 }
