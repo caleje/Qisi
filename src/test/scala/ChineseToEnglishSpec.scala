@@ -1,12 +1,13 @@
 import org.scalatest.FlatSpec
+import qisi.ChineseToPhoneme
 
 class ChineseToEnglishSpec extends FlatSpec {
 
   "cheng" should "translate" in {
-    assert(ChineseToEnglish.translate("cheng") == Seq("CH", "UH", "NG"))
+    assert(ChineseToPhoneme.translate("cheng") == Seq("CH", "UH", "NG"))
   }
 
   "an" should "translate" in {
-    assert(ChineseToEnglish.translate("an") == Seq("AH", "N"))
+    assert(ChineseToPhoneme.translate("an") == Seq("AE", "N"))
   }
 }
