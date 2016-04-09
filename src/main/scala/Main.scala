@@ -20,6 +20,20 @@ object Main {
     val sentence = "head shoulder knee and toes knees and toes"
     println(sentence)
     println(Translation.EnglishToPhoneme(sentence))
+
+    val enPhonemes = qisi.Entries.enEntriesByPhonemes.keys.toSet
+    val chPhonemes = qisi.Entries.chEntriesByPhonemes.keys.toSet
+    val enWithChPhonemes = enPhonemes.filter(chPhonemes.contains)
+    val enWithChPhonemesWords = for {
+      phoneme <- enWithChPhonemes.take(100)
+      enEntry <- qisi.Entries.enEntriesByPhonemes(phoneme)
+      chEntry <- qisi.Entries.chEntriesByPhonemes(phoneme)
+    } yield (enEntry.word, enEntry.phonemes, chEntry.word, chEntry.pinyin, chEntry.definition)
+
+    println("First 100 ")
+    enWithChPhonemesWords.foreach( x => println(s"En: ${x._1}, Pronounce: ${x._2}, Ch: ${x._3}, ChPinyin: ${x._4}, " +
+      s"ChDefn: ${x._5}"))
+
   }
 
 }
