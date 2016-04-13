@@ -37,6 +37,7 @@ T裇 T裇 [T xu1] /T-shirt/
 
 # Future ideas
 * Create command line interface that takes a sentence and returns the sentence and an annotation of each word that has a chinese pun
+* Deal with dirty data
 * Figure out how to handle conversion to phonemes better
 * Search-ability needs to be more flexible than just map ... need wildcards
 * Can have a Chinese phoneme map to more than one English phoneme, e.g. chinese("an") -> english("AE", "AO").  And vice-versa.

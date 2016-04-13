@@ -1,6 +1,7 @@
 package qisi
 
 object Types {
+
   type Phoneme = String
 
   sealed trait Pronounceable {
