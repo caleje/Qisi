@@ -13,7 +13,7 @@ object Types {
 
   final case class ChineseEntry(word: String, pinyin: String, definition: String, rawEntry: String) extends
     Pronounceable {
-    lazy val pinyins = pinyin.replaceAll("[1-4]", "") split (" ") toSeq
+    lazy val pinyins = pinyin.replaceAll("([^a-zA-Z ])", "").replaceAll("  ", " ") split (" ") toSeq
     lazy val phonemes = pinyins flatMap ChineseToPhoneme.translate
   }
 
