@@ -122,13 +122,15 @@ object ChineseToPhoneme {
     "X" -> Array("EH", "K", "S"),
     "Y" -> Array("W", "AY"),
     "Z" -> Array("Z", "IY"))
+  private val capitalLetterRegex = "([A-Za-z])".r
 
   def translate(s: String): Seq[Phoneme] = {
-    s match {
+    s.toLowerCase.replaceAll("[1-5]","") match {
       case pinyinRegex(init, fin) =>
         val initEnglish = if (!init.isEmpty) pinyinInitialsToPhonemes(init) else Array[String]()
         val finalEnglish = pinyinFinalsToPhonemes(fin)
         initEnglish ++ finalEnglish
+      case capitalLetterRegex(letter) => enLetterToPhonemes(letter.toUpperCase)
       case _ => Seq(s)
     }
   }
