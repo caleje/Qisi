@@ -6,6 +6,8 @@ object Main {
 
 
   def main(args: Array[String]): Unit = {
+
+    scala.io.StdIn.readLine("Press enter to start")
     val enEntries = Entries.enEntries
     val chEntries = Entries.chEntries
 
