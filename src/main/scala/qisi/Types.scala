@@ -1,20 +1,21 @@
 package qisi
 
-object Types {
+import cats.Applicative
+import cats.std.all._
 
-  type Phoneme = String
+trait PronounceableEntry {
+  def word: String
+  def phonemes: Seq[Option[Phoneme]]
+  def phonemesOpt: Option[Seq[Phoneme]] = Applicative[Option].sequence[List, Phoneme](phonemes.toList)
+}
 
-  sealed trait Pronounceable {
-    def word: String
-    def phonemes: Seq[Phoneme]
-  }
+final case class ParsedEnglishEntry(word: String, phonemeStrings: Seq[String], unparsedEntry: String)
+final case class ParsedChineseEntry(word: String, pinyinStrings: Seq[String], definition: String, unparsedEntry: String)
 
-  final case class EnglishEntry(word: String, phonemes: Seq[Phoneme], rawEntry: String) extends Pronounceable
+final case class EnglishEntry(entry: ParsedEnglishEntry, phonemes: Seq[Option[Phoneme]]) extends PronounceableEntry {
+  val word = entry.word
+}
 
-  final case class ChineseEntry(word: String, pinyin: String, definition: String, rawEntry: String) extends
-    Pronounceable {
-    lazy val pinyins = pinyin.replaceAll("([^a-zA-Z ])", "").replaceAll("  ", " ") split (" ") toSeq
-    lazy val phonemes = pinyins flatMap ChineseToPhoneme.translate
-  }
-
+final case class ChineseEntry(entry: ParsedChineseEntry, phonemes: Seq[Option[Phoneme]]) extends PronounceableEntry {
+  val word = entry.word
 }

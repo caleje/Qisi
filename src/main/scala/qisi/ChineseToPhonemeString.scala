@@ -1,10 +1,6 @@
 package qisi
 
-import qisi.Types._
-
-import scala.util.{Failure, Success, Try}
-
-object ChineseToPhoneme {
+object ChineseToPhonemeString {
 
   private val pinyinInitialsToPhonemes = Map(
   "b"   -> Array("B"), 		//[p]	spit	unaspirated p, as in spit
@@ -124,7 +120,7 @@ object ChineseToPhoneme {
     "Z" -> Array("Z", "IY"))
   private val capitalLetterRegex = "([A-Za-z])".r
 
-  def translate(s: String): Seq[Phoneme] = {
+  def translate(s: String): Seq[String] = {
     s.toLowerCase match {
       case pinyinRegex(init, fin) =>
         val initEnglish = if (!init.isEmpty) pinyinInitialsToPhonemes(init) else Array[String]()
