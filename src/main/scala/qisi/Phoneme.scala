@@ -1,6 +1,6 @@
 package qisi
 import cats.Applicative
-import cats.std.all._
+import cats.implicits._
 
 case class Phoneme(code: String, example: String, translation: String)
 object Phoneme {
@@ -44,7 +44,7 @@ object Phoneme {
     Phoneme("Y", "yield", "Y IY L D"),
     Phoneme("Z", "zee", "Z IY"),
     Phoneme("ZH", "seizure", "S IY ZH ER"))
-  val phonemesByCode = allPhonemes map { p => p.code -> p} toMap
+  val phonemesByCode: Map[String, Phoneme] = (allPhonemes map { p => p.code -> p}).toMap
   def phonemeOptFromStrings(phonemeStrings: Seq[String]): Option[Seq[Phoneme]] = {
     val upperCasePhonemeStrings = phonemeStrings map ( s => s.toUpperCase)
     val phonemeOpts = upperCasePhonemeStrings map phonemesByCode.get

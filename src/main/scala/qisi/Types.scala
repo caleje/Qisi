@@ -1,7 +1,7 @@
 package qisi
 
 import cats.Applicative
-import cats.std.all._
+import cats.implicits._
 
 trait PronounceableEntry {
   def word: String
@@ -13,9 +13,9 @@ final case class ParsedEnglishEntry(word: String, phonemeStrings: Seq[String], u
 final case class ParsedChineseEntry(word: String, pinyinStrings: Seq[String], definition: String, unparsedEntry: String)
 
 final case class EnglishEntry(entry: ParsedEnglishEntry, phonemes: Seq[Option[Phoneme]]) extends PronounceableEntry {
-  val word = entry.word
+  val word: String = entry.word
 }
 
 final case class ChineseEntry(entry: ParsedChineseEntry, phonemes: Seq[Option[Phoneme]]) extends PronounceableEntry {
-  val word = entry.word
+  val word: String = entry.word
 }

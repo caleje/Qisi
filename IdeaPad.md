@@ -50,6 +50,7 @@ T裇 T裇 [T xu1] /T-shirt/
 * Mash-up with twitter feed
 ** Take a tweet -- take each word and see if there's a cross-language pun in each word of the tweet
 * Type/implicit to make "english sentence" toPhenomes possible.  Detects that english and then translates
+* Spoonerism = sentence where two consecutive words' first letters can be swapped and produce another interesting sentence.
 
 # Things I've learned
 * Regex 
