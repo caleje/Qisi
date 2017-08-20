@@ -51,6 +51,9 @@ T裇 T裇 [T xu1] /T-shirt/
 ** Take a tweet -- take each word and see if there's a cross-language pun in each word of the tweet
 * Type/implicit to make "english sentence" toPhenomes possible.  Detects that english and then translates
 * Spoonerism = sentence where two consecutive words' first letters can be swapped and produce another interesting sentence.
+* Ability to add to a list of rules to ignore, e.g. ignore word2 = "ING", ignore matching suffix LY when word is LEIGH or LEE
+* Need to find an association dictionary to lookup word and get related words.  Like word association cloud.
+* When doing searches by word, e.g. find ("NAZI")
 
 # Things I've learned
 * Regex 
@@ -63,22 +66,4 @@ T裇 T裇 [T xu1] /T-shirt/
 # Patterns
 * PATTERN = PAT URN
 
-import qisi.Entries
-
-val result = for {
-  word1 <- Entries.enEntries
-  word2 <- Entries.enEntries
-  word1word2 = word1.phonemes ++ word2.phonemes
-  wordsWithSamePhonemes <- Entries.enEntriesByPhonemes.get(word1word2)
-} yield (word1.word, word2.word, wordsWithSamePhonemes)
-
-val viewable = result.flatMap(r => r._3.map(r3 => (r._1, r._2, r3.word)))
-    .filterNot(r => Set("'EM", "'N").contains(r._1))
-var current = viewable
-do {
-  print("Lines? ")
-  val lines = readInt()
-  print(current.take(lines).mkString("\n"))
-  current = current.drop(lines)
-} while(true)
 
