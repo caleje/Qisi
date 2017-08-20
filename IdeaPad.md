@@ -59,3 +59,26 @@ T裇 T裇 [T xu1] /T-shirt/
 
 * Use collect with an anonymous partial function to only get the lines that match
 * Promote stuff out of main into their own classes so I can work with them in console
+
+# Patterns
+* PATTERN = PAT URN
+
+import qisi.Entries
+
+val result = for {
+  word1 <- Entries.enEntries
+  word2 <- Entries.enEntries
+  word1word2 = word1.phonemes ++ word2.phonemes
+  wordsWithSamePhonemes <- Entries.enEntriesByPhonemes.get(word1word2)
+} yield (word1.word, word2.word, wordsWithSamePhonemes)
+
+val viewable = result.flatMap(r => r._3.map(r3 => (r._1, r._2, r3.word)))
+    .filterNot(r => Set("'EM", "'N").contains(r._1))
+var current = viewable
+do {
+  print("Lines? ")
+  val lines = readInt()
+  print(current.take(lines).mkString("\n"))
+  current = current.drop(lines)
+} while(true)
+
