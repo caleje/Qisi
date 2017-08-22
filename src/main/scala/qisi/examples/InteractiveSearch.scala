@@ -15,7 +15,7 @@ object InteractiveSearch extends App {
     flattened
   }
   val searchSpaceGivenEntry = (entries: Seq[EnglishEntry]) => {
-    entries.flatMap(e => entriesIndexer.enEntriesByPhonemes(e.phonemes))
+    entries.flatMap(e => entriesIndexer.enEntriesByPhonemes(e.phonemes)).map(e => (e.word, e.word, e.word))
   }
 
   var current = searchSpaceGivenEntries(entriesIndexer.enEntries, entriesIndexer.enEntries)
@@ -48,7 +48,7 @@ object InteractiveSearch extends App {
         println(s"Skipped everything matching $regexString: ${current.head._1}")
       case FindWordRegex(word) =>
         val entries = entriesIndexer.enEntriesByWord(word.toUpperCase)
-        current = searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
+        current = searchSpaceGivenEntry(entries) // searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
         println(s"Now showing words containing $word")
         show()
       case _ @ command =>
