@@ -1,14 +1,15 @@
 package qisi.examples
 
-import qisi.{Entries, Translation}
+import qisi.{ChineseEntriesLoaderImpl, EnglishEntriesLoaderImpl, EntriesIndexer, Translation}
 
 object Homophones {
 
   def main(args: Array[String]): Unit = {
 
+    val entriesIndexer = new EntriesIndexer(EnglishEntriesLoaderImpl, ChineseEntriesLoaderImpl)
     scala.io.StdIn.readLine("Press enter to start")
-    val enEntries = Entries.enEntries
-    val chEntries = Entries.chEntries
+    val enEntries = entriesIndexer.enEntries
+    val chEntries = entriesIndexer.chEntries
 
     val enEntriesByPhoneme = enEntries groupBy(_.phonemes)
     val enHomophones = enEntriesByPhoneme.filter(_._2.length > 1)
@@ -22,13 +23,13 @@ object Homophones {
     println(sentence)
     println(Translation.EnglishToPhoneme(sentence))
 
-    val enPhonemes = qisi.Entries.enEntriesByPhonemes.keys.toSet
-    val chPhonemes = qisi.Entries.chEntriesByPhonemes.keys.toSet
+    val enPhonemes = entriesIndexer.enEntriesByPhonemes.keys.toSet
+    val chPhonemes = entriesIndexer.chEntriesByPhonemes.keys.toSet
     val enWithChPhonemes = enPhonemes.intersect(chPhonemes)
     val enWithChPhonemesWords = for {
       phoneme <- enWithChPhonemes.take(100)
-      enEntry <- qisi.Entries.enEntriesByPhonemes(phoneme)
-      chEntry <- qisi.Entries.chEntriesByPhonemes(phoneme)
+      enEntry <- entriesIndexer.enEntriesByPhonemes(phoneme)
+      chEntry <- entriesIndexer.chEntriesByPhonemes(phoneme)
     } yield (enEntry.word, enEntry.phonemes, chEntry.word, chEntry.entry.pinyinStrings, chEntry.entry.definition)
 
     println("First 100 ")

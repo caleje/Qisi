@@ -13,4 +13,12 @@ object Subsequence {
     case _ if startsWith(sup, sub) => true
     case h::t => hasSubsequence(t, sub)
   }
+
+  def subseqs[A](seq: Seq[A]): Seq[Seq[A]] = {
+    subseqs(seq.length)(seq)
   }
+
+  def subseqs[A](n: Int)(seq: Seq[A]): Seq[Seq[A]] = {
+    1 to n flatMap seq.sliding
+  }
+}

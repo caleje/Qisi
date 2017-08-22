@@ -1,20 +1,24 @@
 package qisi.examples
 
-import qisi.{EnglishEntry, Entries}
+import qisi.{ChineseEntriesLoaderImpl, EnglishEntriesLoaderImpl, EnglishEntry, EntriesIndexer}
 
 object InteractiveSearch extends App {
+  val entriesIndexer = new EntriesIndexer(EnglishEntriesLoaderImpl, ChineseEntriesLoaderImpl)
   val searchSpaceGivenEntries = (entries1: Seq[EnglishEntry], entries2: Seq[EnglishEntry]) => {
     val combined = for {
       word1 <- entries1
       word2 <- entries2
       word1word2 = word1.phonemes ++ word2.phonemes
-      wordsWithSamePhonemes <- Entries.enEntriesByPhonemes.get(word1word2)
+      wordsWithSamePhonemes <- entriesIndexer.enEntriesByPhonemes.get(word1word2)
     } yield (word1.word, word2.word, wordsWithSamePhonemes)
     val flattened = combined.flatMap(r => r._3.map(r3 => (r._1, r._2, r3.word)))
     flattened
   }
+  val searchSpaceGivenEntry = (entries: Seq[EnglishEntry]) => {
+    entries.flatMap(e => entriesIndexer.enEntriesByPhonemes(e.phonemes))
+  }
 
-  var current = searchSpaceGivenEntries(Entries.enEntries, Entries.enEntries)
+  var current = searchSpaceGivenEntries(entriesIndexer.enEntries, entriesIndexer.enEntries)
   var numLines = 20
 
   val show = () => {
@@ -43,8 +47,8 @@ object InteractiveSearch extends App {
         show()
         println(s"Skipped everything matching $regexString: ${current.head._1}")
       case FindWordRegex(word) =>
-        val entries = Entries.enEntriesByWord(word.toUpperCase)
-        current = searchSpaceGivenEntries(entries, Entries.enEntries) ++ searchSpaceGivenEntries(Entries.enEntries, entries)
+        val entries = entriesIndexer.enEntriesByWord(word.toUpperCase)
+        current = searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
         println(s"Now showing words containing $word")
         show()
       case _ @ command =>

@@ -2,7 +2,9 @@ package qisi
 import cats.Applicative
 import cats.implicits._
 
-case class Phoneme(code: String, example: String, translation: String)
+case class Phoneme(code: String, example: String, translation: String) {
+  override def toString: String = code
+}
 object Phoneme {
   val allPhonemes = List(
     Phoneme("AA", "odd", "AA D"),
