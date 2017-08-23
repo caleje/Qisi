@@ -19,7 +19,7 @@ object InteractiveSearch extends App {
   }
   val searchSpaceGivenPhonemesAndIndex = (phonemes: Seq[Option[Phoneme]], index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]) => {
     index(phonemes).map(e => {
-      s"${Phoneme.toString(phonemes)}: ${e.word} (${Phoneme.toString(e.phonemes)})"
+      s"${e.word} (${Phoneme.toString(e.phonemes)})"
     })
   }
 
