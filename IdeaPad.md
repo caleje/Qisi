@@ -54,6 +54,8 @@ T裇 T裇 [T xu1] /T-shirt/
 * Ability to add to a list of rules to ignore, e.g. ignore word2 = "ING", ignore matching suffix LY when word is LEIGH or LEE
 * Need to find an association dictionary to lookup word and get related words.  Like word association cloud.
 * When doing searches by word, e.g. find ("NAZI")
+* http://www.datamuse.com/api/ for a word finding API
+* http://www.rhymer.com/
 
 # Things I've learned
 * Regex 
@@ -65,5 +67,5 @@ T裇 T裇 [T xu1] /T-shirt/
 
 # Patterns
 * PATTERN = PAT URN
-
+* TIDE => T + I'D => THOUGHT + I'D
 

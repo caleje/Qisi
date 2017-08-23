@@ -52,4 +52,10 @@ object Phoneme {
     val phonemeOpts = upperCasePhonemeStrings map phonemesByCode.get
     Applicative[Option].sequence[List, Phoneme](phonemeOpts.toList)
   }
+
+  def toString(phonemes: Seq[Option[Phoneme]]): String =
+    phonemes.map {
+      case Some(p) => p
+      case None => "_"
+    }.mkString(" ")
 }
