@@ -53,6 +53,16 @@ object InteractiveSearch extends App {
     }
   }
 
+  def handleFindWord(word: String): Unit = {
+    entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+      case Some(entries) =>
+        val entriesString = entries.map(_.toStringDetailed).mkString("\n")
+        println(entriesString)
+      case None =>
+        println(s"$word was not found in the dictionary")
+    }
+  }
+
   do {
     val LinesRegex = """l (\d+)""".r
     val MakePunFromAWordAndAnotherRegex = "g (.+)".r
@@ -62,12 +72,30 @@ object InteractiveSearch extends App {
     val FindWordsStartingWithPhonemesRegex = "sp (.+)".r
     val FindWordsEndingWithWordPhonemesRegex = "e (.+)".r
     val FindWordsEndingWithPhonemesRegex = "ep (.+)".r
+    val FindWordRegex = "w (.+)".r
 
-    scala.io.StdIn.readLine("Action? ") match {
+    scala.io.StdIn.readLine("> ") match {
+      case h if h == "h" =>
+        println(
+          """
+            |h             help
+            |m             next page
+            |l             list phonemes
+            |w [word]      find word and display information
+            |g [word]      make pun from word and other words
+            |c [word]      find words containing the phonemes of word
+            |e [word]      find words ending with the phonemes of word
+            |s [word]      find words starting with the phonemes of word
+            |cp [phonemes] find words containing phonemes
+            |ep [phonemes] find words ending with phonemes
+            |sp [phonemes] find words starting with phonemes
+          """.stripMargin)
       case m if m == "m" =>
         show()
       case l if l == "l" =>
         println(Phoneme.allPhonemes.map(p => p.code + " " + p.example).mkString("\n"))
+      case FindWordRegex(word) =>
+        handleFindWord(word)
       case LinesRegex(numLinesString) =>
         numLines = numLinesString.toInt
         println(s"Now showing $numLines at a time")
