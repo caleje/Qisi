@@ -21,4 +21,12 @@ object Subsequence {
   def subseqs[A](n: Int)(seq: Seq[A]): Seq[Seq[A]] = {
     1 to n flatMap seq.sliding
   }
+
+  def startingSubseqs[A](seq: Seq[A]): Seq[Seq[A]] = {
+    1 to seq.length map seq.take
+  }
+
+  def endingSubseqs[A](seq: Seq[A]): Seq[Seq[A]] = {
+    seq.indices map seq.drop
+  }
 }

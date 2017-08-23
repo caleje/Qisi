@@ -1,6 +1,6 @@
 package qisi.examples
 
-import qisi.{ChineseEntriesLoaderImpl, EnglishEntriesLoaderImpl, EnglishEntry, EntriesIndexer}
+import qisi._
 
 object InteractiveSearch extends App {
   val entriesIndexer = new EntriesIndexer(EnglishEntriesLoaderImpl, ChineseEntriesLoaderImpl)
@@ -14,8 +14,8 @@ object InteractiveSearch extends App {
     val flattened = combined.flatMap(r => r._3.map(r3 => (r._1, r._2, r3.word)))
     flattened
   }
-  val searchSpaceGivenEntry = (entries: Seq[EnglishEntry]) => {
-    entries.flatMap(e => entriesIndexer.enEntriesByPhonemes(e.phonemes)).map(e => (e.word, e.word, e.word))
+  val searchSpaceGivenEntryAndIndex = (entries: Seq[EnglishEntry], index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]) => {
+    entries.flatMap(e => index(e.phonemes)).map(e => (e.word, e.word, e.word))
   }
 
   var current = searchSpaceGivenEntries(entriesIndexer.enEntries, entriesIndexer.enEntries)
@@ -27,10 +27,13 @@ object InteractiveSearch extends App {
   }
 
   do {
-    val LinesRegex = """l(\d+)""".r
+    val LinesRegex = """l (\d+)""".r
     val SkipToNextWordRegex = "n".r
-    val SkipBasedOnRegex = "s(.+)".r
-    val FindWordRegex = "f(.+)".r
+    val SkipBasedOnRegex = "r (.+)".r
+    val MakePunFromAWordAndAnotherRegex = "g (.+)".r
+    val FindWordsContainingSoundsRegex = "f (.+)".r
+    val FindWordsStartingWithSoundsRegex = "s (.+)".r
+    val FindWordsEndingWithSoundsRegex = "e (.+)".r
     scala.io.StdIn.readLine("Action? ") match {
       case x if x == "m" =>
         show()
@@ -46,11 +49,43 @@ object InteractiveSearch extends App {
         current = current.dropWhile(w => regex.findAllIn(w._1).nonEmpty)
         show()
         println(s"Skipped everything matching $regexString: ${current.head._1}")
-      case FindWordRegex(word) =>
-        val entries = entriesIndexer.enEntriesByWord(word.toUpperCase)
-        current = searchSpaceGivenEntry(entries) // searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
-        println(s"Now showing words containing $word")
-        show()
+      case FindWordsContainingSoundsRegex(word) =>
+        entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+          case Some(entries) =>
+            current = searchSpaceGivenEntryAndIndex(entries, entriesIndexer.enEntriesByPhonemes)
+            println(s"Now showing words containing $word")
+            show()
+          case None =>
+            println(s"$word was not found in the dictionary")
+        }
+      case FindWordsStartingWithSoundsRegex(word) =>
+        entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+          case Some(entries) =>
+            current = searchSpaceGivenEntryAndIndex(entries, entriesIndexer.enEntriesByStartingPhonemes)
+            println(s"Now showing words starting with words that sound like $word")
+            show()
+          case None =>
+            println(s"$word was not found in the dictionary")
+        }
+      case FindWordsEndingWithSoundsRegex(word) =>
+        entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+          case Some(entries) =>
+            current = searchSpaceGivenEntryAndIndex(entries, entriesIndexer.enEntriesByEndingPhonemes)
+            println(s"Now showing words ending with words that sound like $word")
+            show()
+          case None =>
+            println(s"$word was not found in the dictionary")
+        }
+      case MakePunFromAWordAndAnotherRegex(word) =>
+        entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+          case Some(entries) =>
+            current = searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++
+              searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
+            println(s"Now showing two words combined into a third, one of which is $word")
+            show()
+          case None =>
+            println(s"$word was not found in the dictionary")
+        }
       case _ @ command =>
         println(s"Did not recognized command $command")
     }

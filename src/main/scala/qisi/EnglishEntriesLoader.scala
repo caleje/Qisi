@@ -8,7 +8,7 @@ trait EnglishEntriesLoader {
 
 object EnglishEntriesLoaderImpl extends EnglishEntriesLoader {
 
-  lazy val enEntries: Seq[EnglishEntry] = {
+  val enEntries: Seq[EnglishEntry] = {
     val enStream : InputStream = getClass.getResourceAsStream("/EnglishCmu/cmudict_SPHINX_40.txt")
     val enLines = scala.io.Source.fromInputStream( enStream ).getLines.toSeq
     enEntriesFromLines(enLines)
