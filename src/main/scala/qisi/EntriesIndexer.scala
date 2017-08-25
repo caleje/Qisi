@@ -1,5 +1,5 @@
 package qisi
-import util.Subsequence
+import util.Sequence
 
 class EntriesIndexer(englishEntriesLoader: EnglishEntriesLoader, chineseEntriesLoader: ChineseEntriesLoader) {
 
@@ -11,9 +11,10 @@ class EntriesIndexer(englishEntriesLoader: EnglishEntriesLoader, chineseEntriesL
     val entriesByPhonemes = phonemeSubsequenceEntriesByPhonemes mapValues {_.map(_._2)}
     entriesByPhonemes
   }
-  lazy val enEntriesByPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]  = enEntriesBySubseqsGenerator(Subsequence.subseqs[Option[Phoneme]])
-  lazy val enEntriesByStartingPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]] = enEntriesBySubseqsGenerator(Subsequence.startingSubseqs[Option[Phoneme]])
-  lazy val enEntriesByEndingPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]] = enEntriesBySubseqsGenerator(Subsequence.endingSubseqs[Option[Phoneme]])
+  lazy val enEntriesByPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]] = enEntries groupBy {_.phonemes}
+  lazy val enEntriesBySubsequencePhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]  = enEntriesBySubseqsGenerator(Sequence.subseqs[Option[Phoneme]])
+  lazy val enEntriesByStartingPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]] = enEntriesBySubseqsGenerator(Sequence.startingSubseqs[Option[Phoneme]])
+  lazy val enEntriesByEndingPhonemes: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]] = enEntriesBySubseqsGenerator(Sequence.endingSubseqs[Option[Phoneme]])
 
   lazy val chEntries: Seq[ChineseEntry] = chineseEntriesLoader.chEntries
   lazy val chEntriesByWord: Map[String, Seq[ChineseEntry]] = chineseEntriesLoader.chEntries groupBy {_.word}

@@ -56,6 +56,7 @@ T裇 T裇 [T xu1] /T-shirt/
 * When doing searches by word, e.g. find ("NAZI")
 * http://www.datamuse.com/api/ for a word finding API
 * http://www.rhymer.com/
+* nearby word search needs to be smarter about which phonemes can be inserted, removed, or patched.  Soundex has possibilities.
 
 # Things I've learned
 * Regex 

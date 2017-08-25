@@ -2,7 +2,6 @@ package qisi
 
 import cats.Applicative
 import cats.implicits._
-import util.Subsequence
 
 trait PronounceableEntry {
   def word: String
@@ -23,3 +22,4 @@ final case class ChineseEntry(entry: ParsedChineseEntry, phonemes: Seq[Option[Ph
   val word: String = entry.word
   override def toString: String = word
 }
+

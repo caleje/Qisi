@@ -1,6 +1,5 @@
 package qisi
 
-
 object Translation {
   def EnglishToPhoneme(s: String): Seq[Option[Phoneme]] = {
     val entriesIndexer = new EntriesIndexer(EnglishEntriesLoaderImpl, ChineseEntriesLoaderImpl)

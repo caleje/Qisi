@@ -1,6 +1,6 @@
 package util
 
-object Subsequence {
+object Sequence {
   @annotation.tailrec
   def startsWith[A](l: List[A], prefix: List[A]): Boolean = (l,prefix) match {
     case (_,Nil) => true
@@ -29,4 +29,16 @@ object Subsequence {
   def endingSubseqs[A](seq: Seq[A]): Seq[Seq[A]] = {
     seq.indices map seq.drop
   }
+
+  private def insert[A](seq: Seq[A], i: Int, item: A): Seq[A] = {
+    val (front, back) = seq.splitAt(i)
+    (front :+ item) ++ back
+  }
+  def sequencesByInserting[A](seq: Seq[A], item: A): Seq[Seq[A]] = {
+    (0 to seq.length).map(i => insert(seq, i, item))
+  }
+
+  def sequencesByRemoving[A](seq: Seq[A]): Seq[Seq[A]] = seq.indices.map(seq.patch(_, Nil, 1))
+
+  def sequencesByPatching[A](seq: Seq[A], patch: A): Seq[Seq[A]] = seq.indices.map(seq.patch(_, Seq(patch), 1))
 }

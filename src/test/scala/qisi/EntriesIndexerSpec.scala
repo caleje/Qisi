@@ -20,7 +20,7 @@ class EntriesIndexerSpec extends FlatSpec with Matchers with MockFactory {
     val entriesIndexer = new EntriesIndexer(englishEntriesLoader, chineseEntriesLoader)
 
     // Act
-    val actual = entriesIndexer.enEntriesByPhonemes
+    val actual = entriesIndexer.enEntriesBySubsequencePhonemes
 
     // Assert
     val ab = enEntries.head

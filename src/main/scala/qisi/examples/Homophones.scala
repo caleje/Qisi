@@ -23,12 +23,12 @@ object Homophones {
     println(sentence)
     println(Translation.EnglishToPhoneme(sentence))
 
-    val enPhonemes = entriesIndexer.enEntriesByPhonemes.keys.toSet
+    val enPhonemes = entriesIndexer.enEntriesBySubsequencePhonemes.keys.toSet
     val chPhonemes = entriesIndexer.chEntriesByPhonemes.keys.toSet
     val enWithChPhonemes = enPhonemes.intersect(chPhonemes)
     val enWithChPhonemesWords = for {
       phoneme <- enWithChPhonemes.take(100)
-      enEntry <- entriesIndexer.enEntriesByPhonemes(phoneme)
+      enEntry <- entriesIndexer.enEntriesBySubsequencePhonemes(phoneme)
       chEntry <- entriesIndexer.chEntriesByPhonemes(phoneme)
     } yield (enEntry.word, enEntry.phonemes, chEntry.word, chEntry.entry.pinyinStrings, chEntry.entry.definition)
 
