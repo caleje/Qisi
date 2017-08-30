@@ -57,16 +57,29 @@ T裇 T裇 [T xu1] /T-shirt/
 * http://www.datamuse.com/api/ for a word finding API
 * http://www.rhymer.com/
 * nearby word search needs to be smarter about which phonemes can be inserted, removed, or patched.  Soundex has possibilities.
+* as I'm looking through results, it'd be nice to be able to file away ideas as they come up
+* should make sure that when I file ideas, I can store the formula or search I used to find it
+* always have the formula
+* consider using machine learning to determine proximity of words rather than imperative
+* use lex
+* use notebook interface for exploring output
+* use reddit as target (and then upvotes helps give feedback)
+* use punoff.com as target
+* https://api.datamuse.com/words?rel_trg=canoe
 
 # Things I've learned
 * Regex 
 ** Can unapply the regex to parse a line
 ** IntelliJ ctrl-f find can be used to figure out the regex
-
 * Use collect with an anonymous partial function to only get the lines that match
 * Promote stuff out of main into their own classes so I can work with them in console
+* Should record puns and use machine learning to help score quality
 
 # Patterns
 * PATTERN = PAT URN
 * TIDE => T + I'D => THOUGHT + I'D
-
+* VAMPIRE => RE + VAMP + IRE => REVAMP + IRE
+* STAR => STARCH => STARCH WRECK => STAR TREK
+* LONELY => (R for L) => RONERY
+* PREREQ => PRE-WRECK
+* CANOE => RUDDER => READY OR NOT, HERE I COME => RUDDER OR NOT, HERE I COME

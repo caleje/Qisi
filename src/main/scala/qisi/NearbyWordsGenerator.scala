@@ -13,7 +13,7 @@ object NearbyWordsGenerator {
   }
 
   private def combinationsByPatching(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {
-    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByPatching(phonemes, Some(p)))
+    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByPatching(phonemes, Some(p))).distinct
   }
 
   def generate(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {

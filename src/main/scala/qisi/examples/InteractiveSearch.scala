@@ -9,7 +9,7 @@ object InteractiveSearch extends App {
       word1 <- entries1
       word2 <- entries2
       word1word2 = word1.phonemes ++ word2.phonemes
-      wordsWithSamePhonemes <- entriesIndexer.enEntriesBySubsequencePhonemes.get(word1word2)
+      wordsWithSamePhonemes <- entriesIndexer.enEntriesByPhonemes.get(word1word2)
     } yield (word1.word, word2.word, wordsWithSamePhonemes)
     val flattened = combined.flatMap(r => r._3.map(r3 => s"${r._1}+${r._2} = ${r3.word}"))
     flattened
@@ -42,22 +42,22 @@ object InteractiveSearch extends App {
     }
   }
 
+  def handleFindWord(word: String): Unit = {
+    entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+      case Some(entries) =>
+        val entriesString = entries.map(_.toStringDetailed).mkString("\n")
+        println(entriesString)
+      case None =>
+        println(s"$word was not found in the dictionary")
+    }
+  }
+
   def handleFindByWord(word: String, index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]], description: String): Unit = {
     entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
       case Some(entries) =>
         current = searchSpaceGivenEntryAndIndex(entries, index)
         println(description)
         show()
-      case None =>
-        println(s"$word was not found in the dictionary")
-    }
-  }
-
-  def handleFindWord(word: String): Unit = {
-    entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
-      case Some(entries) =>
-        val entriesString = entries.map(_.toStringDetailed).mkString("\n")
-        println(entriesString)
       case None =>
         println(s"$word was not found in the dictionary")
     }
@@ -75,6 +75,21 @@ object InteractiveSearch extends App {
     }
   }
 
+  def handleComboFindByword(word: String): Unit = {
+    entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
+      case Some(entries) =>
+        val nearbyWordPhonemes = entries.flatMap(e => NearbyWordsGenerator.generate(e.phonemes))
+        val nearby = nearbyWordPhonemes.flatMap(wordPhonemes => searchSpaceGivenPhonemesAndIndex(wordPhonemes, entriesIndexer.enEntriesByPhonemes))
+        val containing = searchSpaceGivenEntryAndIndex(entries, entriesIndexer.enEntriesByPhonemes)
+        val combo = searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
+        current = (nearby ++ containing ++ combo).distinct
+        println("Finding words using all strategies")
+        show()
+      case None =>
+        println(s"$word was not found in the dictionary")
+    }
+  }
+
   do {
     val LinesRegex = """l (\d+)""".r
     val MakePunFromAWordAndAnotherRegex = "g (.+)".r
@@ -86,6 +101,7 @@ object InteractiveSearch extends App {
     val FindWordsEndingWithPhonemesRegex = "ep (.+)".r
     val FindWordRegex = "w (.+)".r
     val FindNearbyWords = "n (.+)".r
+    val FindNearbyContainingAndComboWordsRegex = "a (.+)".r
 
     scala.io.StdIn.readLine("> ") match {
       case h if h == "h" =>
@@ -100,6 +116,7 @@ object InteractiveSearch extends App {
             |e [word]      find words ending with the phonemes of word
             |s [word]      find words starting with the phonemes of word
             |n [word]      find words that are off by one phoneme (insert, remove, or patch)
+            |a [word]      combination of c, g, and n
             |cp [phonemes] find words containing phonemes
             |ep [phonemes] find words ending with phonemes
             |sp [phonemes] find words starting with phonemes
@@ -127,6 +144,8 @@ object InteractiveSearch extends App {
         handleFindByPhonemes(phonemesString, entriesIndexer.enEntriesByEndingPhonemes, s"Now showing words ending with sounds like $phonemesString")
       case FindNearbyWords(word) =>
         handleFindNearbyWordsByWord(word, s"Now showing words that are off by one phoneme from $word")
+      case FindNearbyContainingAndComboWordsRegex(word) =>
+        handleComboFindByword(word)
       case MakePunFromAWordAndAnotherRegex(word) =>
         entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
           case Some(entries) =>
