@@ -90,6 +90,31 @@ object InteractiveSearch extends App {
     }
   }
 
+  def handleNg(): Unit = {
+    val ihng = Phoneme.phonemeOptFromStrings(Seq("IH", "NG")).get.map(Some(_))
+    val wordsEndingWithIhng = entriesIndexer.enEntriesByEndingPhonemes(ihng)
+
+    val bases = wordsEndingWithIhng.map(word => {
+      val phonemes = word.phonemesOpt.get
+      val nonIhng = phonemes.take(phonemes.length - 2)
+      nonIhng
+    })
+
+    val ahn = Phoneme.phonemeOptFromStrings(Seq("AH", "N")).get
+    val basePlusAhn = bases.map(_ ++ ahn)
+    val wordsContainingBasePlusAhns = basePlusAhn.flatMap(basePlusAhn => {
+      val basePlusAhnOpt = basePlusAhn.map(Some(_))
+      val entries = entriesIndexer.enEntriesByPhonemes.get(basePlusAhnOpt)
+      entries match {
+        case Some(actualEntries) => actualEntries.map(e => s"${e.word} (${Phoneme.toString(e.phonemes)})")
+        case None => Seq.empty[String]
+      }
+    })
+    current = wordsContainingBasePlusAhns
+    println("Now showing [IH NG]/[AH N] puns")
+    show()
+  }
+
   do {
     val LinesRegex = """l (\d+)""".r
     val MakePunFromAWordAndAnotherRegex = "g (.+)".r
@@ -120,6 +145,7 @@ object InteractiveSearch extends App {
             |cp [phonemes] find words containing phonemes
             |ep [phonemes] find words ending with phonemes
             |sp [phonemes] find words starting with phonemes
+            |ng            find words [IH NG] => [AH N] puns
           """.stripMargin)
       case m if m == "m" =>
         show()
@@ -156,6 +182,8 @@ object InteractiveSearch extends App {
           case None =>
             println(s"$word was not found in the dictionary")
         }
+      case ng if ng == "ng" =>
+        handleNg()
       case _ @ command =>
         println(s"Did not recognized command $command")
     }

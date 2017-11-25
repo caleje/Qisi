@@ -23,18 +23,18 @@ object Homophones {
     println(sentence)
     println(Translation.EnglishToPhoneme(sentence))
 
-    val enPhonemes = entriesIndexer.enEntriesBySubsequencePhonemes.keys.toSet
-    val chPhonemes = entriesIndexer.chEntriesByPhonemes.keys.toSet
-    val enWithChPhonemes = enPhonemes.intersect(chPhonemes)
-    val enWithChPhonemesWords = for {
-      phoneme <- enWithChPhonemes.take(100)
-      enEntry <- entriesIndexer.enEntriesBySubsequencePhonemes(phoneme)
-      chEntry <- entriesIndexer.chEntriesByPhonemes(phoneme)
-    } yield (enEntry.word, enEntry.phonemes, chEntry.word, chEntry.entry.pinyinStrings, chEntry.entry.definition)
-
-    println("First 100 ")
-    enWithChPhonemesWords.foreach( x => println(s"En: ${x._1}, Pronounce: ${x._2}, Ch: ${x._3}, ChPinyin: ${x._4}, " +
-      s"ChDefn: ${x._5}"))
+//    val enPhonemes = entriesIndexer.enEntriesBySubsequencePhonemes.keys.toSet
+//    val chPhonemes = entriesIndexer.chEntriesByPhonemes.keys.toSet
+//    val enWithChPhonemes = enPhonemes.intersect(chPhonemes)
+//    val enWithChPhonemesWords = for {
+//      phoneme <- enWithChPhonemes.take(100)
+//      enEntry <- entriesIndexer.enEntriesBySubsequencePhonemes(phoneme)
+//      chEntry <- entriesIndexer.chEntriesByPhonemes(phoneme)
+//    } yield (enEntry.word, enEntry.phonemes, chEntry.word, chEntry.entry.pinyinStrings, chEntry.entry.definition)
+//
+//    println("First 100 ")
+//    enWithChPhonemesWords.foreach( x => println(s"En: ${x._1}, Pronounce: ${x._2}, Ch: ${x._3}, ChPinyin: ${x._4}, " +
+//      s"ChDefn: ${x._5}"))
 
   }
 

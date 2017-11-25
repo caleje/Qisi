@@ -66,6 +66,9 @@ T裇 T裇 [T xu1] /T-shirt/
 * use reddit as target (and then upvotes helps give feedback)
 * use punoff.com as target
 * https://api.datamuse.com/words?rel_trg=canoe
+* Observation that 1 and 2 syllable words are easier to build from
+* WAGGING is two phonemes from WAGON, but still quite close
+* FIX: index on Seq[Phoneme], not Seq[Option[Phoneme]]
 
 # Things I've learned
 * Regex 
@@ -83,3 +86,13 @@ T裇 T裇 [T xu1] /T-shirt/
 * LONELY => (R for L) => RONERY
 * PREREQ => PRE-WRECK
 * CANOE => RUDDER => READY OR NOT, HERE I COME => RUDDER OR NOT, HERE I COME
+* PUT THAT ECLIPSE WHERE THE SUN DON'T SHINE
+* I'M ACHING OF MY CASTLE
+* Formula = [find pun], then create story in which pun makes sense
+* TAN GENTS = FILIPINO KINGS OF DISTRACTION = TAN GENTS
+* [PHONEMES OF WORD ENDING WITH AH N] - [AH N] sounds like a [WORD ENDS WITH IH NG]
+    ACCORDION => ACCORDING .... ACCORDING to my sources, tango music...
+    ALIEN => ALING IF the US got invaded by martians, we'd have an ALIEN NATION 
+    - Input:  Erring -> EH R IH NG
+    - EH R IN NG -> EH R AH N
+    - EndsWith: EH R AH N, sorted by closest (least phonames different)
