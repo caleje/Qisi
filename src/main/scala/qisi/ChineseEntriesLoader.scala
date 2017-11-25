@@ -16,9 +16,9 @@ object ChineseEntriesLoaderImpl extends ChineseEntriesLoader {
       ParsedChineseEntry(word, pinyinStrings, definition, line)
   }
 
-  val chEntries: Seq[ChineseEntry] = parsedChEntries map ( e => {
-    val phonemeStrings = e.pinyinStrings flatMap ChineseToPhonemeString.translate
-    val phonemes = phonemeStrings map Phoneme.phonemesByCode.get
-    ChineseEntry(e, phonemes)
-  })
+  val chEntries: Seq[ChineseEntry] = for {
+    entry <- parsedChEntries
+    phonemeStrings = entry.pinyinStrings flatMap ChineseToPhonemeString.translate
+    phonemes <- Phoneme.phonemeOptFromStrings((phonemeStrings))
+  } yield ChineseEntry(entry, phonemes)
 }

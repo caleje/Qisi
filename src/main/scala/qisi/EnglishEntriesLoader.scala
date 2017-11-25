@@ -17,10 +17,10 @@ object EnglishEntriesLoaderImpl extends EnglishEntriesLoader {
   def enEntriesFromLines(enLines: Seq[String]): Seq[EnglishEntry] = {
     val enRegex =  """^([^\t]+)\t([\w ]+)""".r
     val parsedEnEntries = enLines collect { case line @ enRegex(w, p) => ParsedEnglishEntry(w, p.split(" "), line)}
-    parsedEnEntries map( e => {
-      val phonemes = e.phonemeStrings map Phoneme.phonemesByCode.get
-      EnglishEntry(e, phonemes)
-    })
+    for {
+      entry <- parsedEnEntries
+      phonemes <- Phoneme.phonemeOptFromStrings(entry.phonemeStrings)
+    } yield EnglishEntry(entry, phonemes)
   }
 
 }

@@ -14,10 +14,10 @@ object InteractiveSearch extends App {
     val flattened = combined.flatMap(r => r._3.map(r3 => s"${r._1}+${r._2} = ${r3.word}"))
     flattened
   }
-  val searchSpaceGivenEntryAndIndex = (entries: Seq[EnglishEntry], index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]) => {
+  val searchSpaceGivenEntryAndIndex = (entries: Seq[EnglishEntry], index: Map[Seq[Phoneme], Seq[EnglishEntry]]) => {
     entries.flatMap(e => index.getOrElse(e.phonemes, Seq.empty)).map(e => s"${e.word} (${Phoneme.toString(e.phonemes)})")
   }
-  val searchSpaceGivenPhonemesAndIndex = (phonemes: Seq[Option[Phoneme]], index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]]) => {
+  def searchSpaceGivenPhonemesAndIndex(phonemes: Seq[Phoneme], index: Map[Seq[Phoneme], Seq[EnglishEntry]]): Seq[String] = {
     index.getOrElse(phonemes, Seq.empty).map(e => {
       s"${e.word} (${Phoneme.toString(e.phonemes)})"
     })
@@ -31,11 +31,12 @@ object InteractiveSearch extends App {
     current = current.drop(numLines)
   }
 
-  def handleFindByPhonemes(phonemesString: String, index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]], description: String): Unit = {
-    val phonemes = phonemesString.split(" ").map(_.toUpperCase).map(Phoneme.phonemesByCode.get)
-    if(phonemes.length < 1 || phonemes.exists(_.isEmpty)) {
+  def handleFindByPhonemes(phonemesString: String, index: Map[Seq[Phoneme], Seq[EnglishEntry]], description: String): Unit = {
+    val phonemesOpt = phonemesString.split(" ").map(_.toUpperCase).map(Phoneme.phonemesByCode.get)
+    if(phonemesOpt.length < 1 || phonemesOpt.exists(_.isEmpty)) {
       println(s"Illegal phonemes string: $phonemesString")
     } else {
+      val phonemes = phonemesOpt.map(_.get)
       current = searchSpaceGivenPhonemesAndIndex(phonemes, index)
       println(description)
       show()
@@ -52,7 +53,7 @@ object InteractiveSearch extends App {
     }
   }
 
-  def handleFindByWord(word: String, index: Map[Seq[Option[Phoneme]], Seq[EnglishEntry]], description: String): Unit = {
+  def handleFindByWord(word: String, index: Map[Seq[Phoneme], Seq[EnglishEntry]], description: String): Unit = {
     entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
       case Some(entries) =>
         current = searchSpaceGivenEntryAndIndex(entries, index)
@@ -91,11 +92,11 @@ object InteractiveSearch extends App {
   }
 
   def handleNg(): Unit = {
-    val ihng = Phoneme.phonemeOptFromStrings(Seq("IH", "NG")).get.map(Some(_))
+    val ihng = Phoneme.phonemeOptFromStrings(Seq("IH", "NG")).get
     val wordsEndingWithIhng = entriesIndexer.enEntriesByEndingPhonemes(ihng)
 
     val bases = wordsEndingWithIhng.map(word => {
-      val phonemes = word.phonemesOpt.get
+      val phonemes = word.phonemes
       val nonIhng = phonemes.take(phonemes.length - 2)
       nonIhng
     })
@@ -103,8 +104,7 @@ object InteractiveSearch extends App {
     val ahn = Phoneme.phonemeOptFromStrings(Seq("AH", "N")).get
     val basePlusAhn = bases.map(_ ++ ahn)
     val wordsContainingBasePlusAhns = basePlusAhn.flatMap(basePlusAhn => {
-      val basePlusAhnOpt = basePlusAhn.map(Some(_))
-      val entries = entriesIndexer.enEntriesByPhonemes.get(basePlusAhnOpt)
+      val entries = entriesIndexer.enEntriesByPhonemes.get(basePlusAhn)
       entries match {
         case Some(actualEntries) => actualEntries.map(e => s"${e.word} (${Phoneme.toString(e.phonemes)})")
         case None => Seq.empty[String]

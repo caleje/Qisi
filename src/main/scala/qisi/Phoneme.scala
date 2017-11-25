@@ -53,9 +53,10 @@ object Phoneme {
     Applicative[Option].sequence[List, Phoneme](phonemeOpts.toList)
   }
 
-  def toString(phonemes: Seq[Option[Phoneme]]): String =
-    phonemes.map {
-      case Some(p) => p
+  def toString(phonemes: Seq[_]): String =
+    phonemes.map(_ match {
+      case Some(phoneme) => phoneme.toString
       case None => "_"
-    }.mkString(" ")
+      case _ @ phoneme => phoneme.toString
+    }).mkString(" ")
 }

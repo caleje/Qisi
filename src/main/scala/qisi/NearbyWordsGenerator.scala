@@ -4,19 +4,19 @@ import util.Sequence
 
 object NearbyWordsGenerator {
 
-  private def combinationsByInserting(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {
-    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByInserting(phonemes, Some(p)))
+  private def combinationsByInserting(phonemes: Seq[Phoneme]): Seq[Seq[Phoneme]] = {
+    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByInserting(phonemes, p))
   }
 
-  private def combinationsByRemoving(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {
+  private def combinationsByRemoving(phonemes: Seq[Phoneme]): Seq[Seq[Phoneme]] = {
     Sequence.sequencesByRemoving(phonemes)
   }
 
-  private def combinationsByPatching(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {
-    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByPatching(phonemes, Some(p))).distinct
+  private def combinationsByPatching(phonemes: Seq[Phoneme]): Seq[Seq[Phoneme]] = {
+    Phoneme.allPhonemes.flatMap(p => Sequence.sequencesByPatching(phonemes, p)).distinct
   }
 
-  def generate(phonemes: Seq[Option[Phoneme]]): Seq[Seq[Option[Phoneme]]] = {
+  def generate(phonemes: Seq[Phoneme]): Seq[Seq[Phoneme]] = {
     combinationsByInserting(phonemes) ++
     combinationsByRemoving(phonemes) ++
     combinationsByPatching(phonemes)
