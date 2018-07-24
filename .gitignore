@@ -2,3 +2,4 @@ target
 *.ipr
 *.iws
 .idea
+/qisi-python/.ipynb_checkpoints/InteractiveSearch-checkpoint.ipynb
