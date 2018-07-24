@@ -68,7 +68,11 @@ object InteractiveSearch extends App {
     entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
       case Some(entries) =>
         val nearbyWordPhonemes = entries.flatMap(e => NearbyWordsGenerator.generate(e.phonemes))
-        current = nearbyWordPhonemes.flatMap(wordPhonemes => searchSpaceGivenPhonemesAndIndex(wordPhonemes, entriesIndexer.enEntriesByPhonemes))
+        current = nearbyWordPhonemes.flatMap(wordPhonemes => {
+          val distance = EditDistance.editDist(entries.head.phonemes, wordPhonemes)
+          val wordDescriptions = searchSpaceGivenPhonemesAndIndex(wordPhonemes, entriesIndexer.enEntriesByPhonemes)
+          wordDescriptions.map(wordDescription => s"$wordDescription, Distance: $distance")
+        })
         println(description)
         show()
       case None =>
@@ -80,7 +84,11 @@ object InteractiveSearch extends App {
     entriesIndexer.enEntriesByWord.get(word.toUpperCase) match {
       case Some(entries) =>
         val nearbyWordPhonemes = entries.flatMap(e => NearbyWordsGenerator.generate(e.phonemes))
-        val nearby = nearbyWordPhonemes.flatMap(wordPhonemes => searchSpaceGivenPhonemesAndIndex(wordPhonemes, entriesIndexer.enEntriesByPhonemes))
+        val nearby = nearbyWordPhonemes.flatMap(wordPhonemes => {
+          val distance = EditDistance.editDist(entries.head.phonemes, wordPhonemes)
+          val wordDescriptions = searchSpaceGivenPhonemesAndIndex(wordPhonemes, entriesIndexer.enEntriesByPhonemes)
+          wordDescriptions.map(wordDescription => s"$wordDescription, Distance: $distance")
+        })
         val containing = searchSpaceGivenEntryAndIndex(entries, entriesIndexer.enEntriesByPhonemes)
         val combo = searchSpaceGivenEntries(entries, entriesIndexer.enEntries) ++ searchSpaceGivenEntries(entriesIndexer.enEntries, entries)
         current = (nearby ++ containing ++ combo).distinct
@@ -106,7 +114,10 @@ object InteractiveSearch extends App {
     val wordsContainingBasePlusAhns = basePlusAhn.flatMap(basePlusAhn => {
       val entries = entriesIndexer.enEntriesByPhonemes.get(basePlusAhn)
       entries match {
-        case Some(actualEntries) => actualEntries.map(e => s"${e.word} (${Phoneme.toString(e.phonemes)})")
+        case Some(actualEntries) => for {
+          basePlusAhn <- actualEntries
+          basePlusIhng <- entriesIndexer.enEntriesByPhonemes(basePlusAhn.phonemes.dropRight(2) ++ ihng)
+        } yield s"${basePlusAhn.word} ${basePlusIhng.word}"
         case None => Seq.empty[String]
       }
     })
