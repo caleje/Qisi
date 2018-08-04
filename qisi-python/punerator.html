@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            // scrapes idioms - TODO: sort this out
+            function getIdioms() {
+                const letters = ['a','b','c'];
+                const phrases = [];
+                letters.forEach(letter => {
+                    const urlToFetch = 'http://www.knowyourphrase.com/phrase-meanings/' + letter + '.html';
+                    $.get(urlToFetch, response => {
+                        const responseAsHTML = '<div>' + response + '</div>';
+                        const phrasesByLetter = $(responseAsHTML).filter('div b a');
+                        console.log(phrasesByLetter);
+                    });
+                });
+                return phrases;
+            }
+
+            // needs to use google cloud platform - not working atm
+            function getSmallestNoun(phrase) {
+                const url = 'http://api.textrazor.com';
+                $.ajax({
+                    url: url,
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader("Authorization", "x-textrazor-key: de1a1f694f4c37c8dfe97a37ba109b0b2455eaddef5d884640f9a3c9")
+                    },
+                    data: {
+                        "extractors": "words",
+                        "text":"He's a man after my own heart."
+                    },
+                    success: function(data){
+                        console.log(data);
+                        //process the JSON data etc
+                    }
+                })
+            }
+
+            function getRhyme(word) {
+                const url = 'http://rhymebrain.com/talk?function=getRhymes&word=' + word;
+                return $.getJSON(url, data => {
+                    return Promise.resolve(data);
+                });
+            }
+
+            function getTopic(word) {
+                const url = 'https://wordsapiv1.p.mashape.com/words/' + word + '/typeOf';
+                return $.ajax({
+                    url: url,
+                    type: "GET",
+                    beforeSend: function(xhr){xhr.setRequestHeader('X-Mashape-Key', 'YzHywdSPPPmshCGqFLg8OJAEHurvp1Q868ijsnQ9YP4m64onBn');},
+                    success: (response) => {
+                        return Promise.resolve(response.typeOf[0]);
+                    }
+                });
+            }
+
+            function setResult(phrase) {
+                $('.result').html(phrase.join(' '));
+            }
+
+            function setTopic(topic) {
+                $('.topic').html(topic);
+            }
+
+            $(document).ready(() => {
+                $('.phrase-input').keypress(event => {
+                    if (event.which === 13) {
+                        const phraseArray = $('.phrase-input').val().split(' ');
+                        const randomWordIndex = Math.floor(Math.random() * phraseArray.length);
+                        const word = phraseArray[randomWordIndex];
+                        getRhyme(word).then(res => {
+                            let newPhrase = phraseArray;
+                            newPhrase[randomWordIndex] = res[0].word;
+                            setResult(newPhrase);
+                            return res[0].word;
+                        }).then(word => {
+                            console.log(word);
+                            return getTopic(word);
+                        }).then(res => {
+                            console.log(res);
+                            return setTopic(res.typeOf[0]);
+                        }).catch(e => {
+                            console.error(e);
+                        });
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Punerator</h1>
+        <input type="text" class="phrase-input" placeholder="enter keyword"/>
+        <h2>Result:</h2>
+        <div class="result"></div>
+        <h2>Topic:</h2>
+        <div class="topic"></div>
+    </body>
+</html>

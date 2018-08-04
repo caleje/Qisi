@@ -6,3 +6,5 @@ python3 -m pip install jupyter
 
 * Running
 jupyter notebook
+
+pip install textblob

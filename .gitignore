@@ -3,3 +3,4 @@ target
 *.iws
 .idea
 /qisi-python/.ipynb_checkpoints/InteractiveSearch-checkpoint.ipynb
+*.DS_Store
