@@ -96,3 +96,16 @@ T裇 T裇 [T xu1] /T-shirt/
     - Input:  Erring -> EH R IH NG
     - EH R IN NG -> EH R AH N
     - EndsWith: EH R AH N, sorted by closest (least phonames different)
+    
+    
+# Notes for Presentation
+* Observation: I can generate lots of candidates, but how to filter
+** Filter sentences that have unreocgnized words
+** Rules that filter out boring things like possessives
+* How to generate phrases in a category
+* Ideas: highlight the word
+* Ideas: how to show results better
+* Ideas: how to find "on topic phrases"
+* http://punoff.com/traditional-topics-for-punslingers/
+* Observation: It's not sufficient to have a sentence that's related to the topic.  The substitution must be relevant
+* Resource: https://github.com/niderhoff/nlp-datasets
