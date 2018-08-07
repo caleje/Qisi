@@ -116,3 +116,4 @@ T裇 T裇 [T xu1] /T-shirt/
 ** Synonyms
 * Evolution: spoonerisms
 * Evolution: parallelization
+* Problem: how to cull sets with combinatoric explosion 
