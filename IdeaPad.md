@@ -109,3 +109,10 @@ T裇 T裇 [T xu1] /T-shirt/
 * http://punoff.com/traditional-topics-for-punslingers/
 * Observation: It's not sufficient to have a sentence that's related to the topic.  The substitution must be relevant
 * Resource: https://github.com/niderhoff/nlp-datasets
+* Learning: using itertools helpful to deal with large data
+* Learning: chaining maps like in scala isn't pythonic and is awkward
+* Learning: be careful with iterators/generators cause you can accidentally empty them
+* Evolution: instead of just looking for whether a sentence puns with my word, look for whether it contains
+** Synonyms
+* Evolution: spoonerisms
+* Evolution: parallelization
